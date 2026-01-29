@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una sorpresa más ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff5f8f, #ff9a9e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.card {
+  max-width: 400px;
+  animation: fadeIn 2s ease;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+button {
+  background: white;
+  color: #ff4f7a;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.firework {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Porque aún hay más ❤️</h1>
+
+  <img src="sorpresa.jpg" alt="Sorpresa">
+
+  <p style="font-size:18px;font-weight:bold;">
+    ¿Lista para un muy lindo concierto<br>
+    el <strong>19 de febrero</strong>? 🎶❤️
+  </p>
+
+  <button onclick="teAmo()">Te amo ❤️</button>
+
+  <p style="margin-top:25px;font-size:14px;">
+    Con amor infinito,<br>
+    <strong>Santiago 💖</strong>
+  </p>
+</div>
+
+<script>
+function teAmo() {
+  for (let i = 0; i < 25; i++) {
+    const fw = document.createElement("div");
+    fw.className = "firework";
+    fw.style.left = Math.random() * 100 + "vw";
+    fw.style.top = Math.random() * 100 + "vh";
+    fw.style.background = `hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1200);
+  }
+}
+</script>
+
+</body>
+</html>
